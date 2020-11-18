@@ -1,0 +1,116 @@
+<ng-progress></ng-progress>
+
+<!-- start of hero section -->
+<section id="hero__section" class="scroll px-3" style="overflow: hidden; pointer-events: none !important;">
+  <div class="coming-soon d-flex align-items-end flex-column bd-highlight mb-3 ml-auto" style="background: transparent; position: absolute; z-index: 1; pointer-events: none;">
+    <!-- <img src="../../assets/img/coming_soon3.png" class="img-fluid" alt="" srcset="" width="300" height="300"> -->
+  </div>
+  <div class="container-fluid mx-auto" style="overflow-y: hidden; z-index: -1;">
+    <!-- <img src="../../assets/img/naivelogo.jpg" class="logo" alt="image" srcset=""> -->
+    <div class="row d-flex">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-8" style="">
+        <div style="padding-bottom: 25px;"  class="hero__text1 wow bounceIn">
+          <h1>Find your <span class="super__hero">dream</span> job right here!</h1>
+          <div class="heading-underline"></div>
+          <p>We are always looking for bright minds and enthusiastic people from diverse backgrounds.</p>
+        </div>
+        <div class="hero__text2 wow bounceIn ">
+          <p>Browse through our vacancies below and apply now!</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4" style="overflow: hidden;">
+
+        <div class="text-center wow pulse" style="overflow: hidden; animation-duration: 3s; animation-delay: 3s; animation-iteration-count: infinite;">
+          <img src="../../assets/img/naivelogo.jpg" class="logo12 wow bounceIn" alt="image" width="280" srcset="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features1" class="text-center scroll wow pulse">
+  <div class="container-fluid mx-auto">
+    <div class="features__logo__text">
+      <div class="row  wow slideInLeft">
+        <div class="col-12 col-sm-12 col-md-5 my-auto">
+          <!-- <h1 class="text-center">Halo Group Recruitment: </h1> -->
+        </div>
+        <div class="col-12 col-sm-12 col-md-7 pl-3">
+          <h1  style="overflow: hidden;"> <span> Job/Post Vacancies...</span> </h1>
+        </div>
+      </div>
+    </div>
+    <div  class="row d-flex justify-content-around wow bounce" style="animation-delay: 15s; animation-iteration-count: infinite; animation-duration: 6s;">
+      <div *ngFor="let post of posts"  id="{{post._id}}" class="col-12 col-sm-12 com-md-4 col-lg-4 text-center mx-auto" style="overflow: hidden;">
+        <div class="card py-5 px-4 mx-auto wow rotateIn free-card">
+          <div class="card-img"><img *ngIf="post.url" src="{{post.url}}" class="img-fluid" height="120"
+              width="133" alt="image" srcset="">
+              <img *ngIf="!post.url" src="../../assets/img/naivelogo.jpg" class="img-fluid" height="120"
+              width="133" alt="image" srcset=""></div>
+          <div class="card-title">{{post.title}}</div>
+          <div class="card-subtitle">{{post.where}}</div>
+          <div class="card-text" style="margin-bottom: 25px;">
+            {{post.description}}
+          </div>
+          <div class="card-subtitle" style="margin-bottom: 10px;"><strong>Due Date: {{post.date}}</strong></div>
+          <a>Read More..</a>
+          <button class="btn applybtn" (click)="apply(post._id)">Apply Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section id="notify" class="mt-5 pt-3 scroll">
+  <div class="text-center wow bounceIn">
+    <h2 class="text-center" style="overflow: hidden;">More vacancies coming soon!</h2>
+    <p class="text-center mt-4 mx-auto">Sign up to get notified first</p>
+    <div class="">
+      <form [formGroup]="newsletterForm" (ngSubmit)="registerData()">
+        <div class="form-group text-center">
+          <input type="email" class="form-control mx-auto" formControlName="email" id="inputemail"
+            aria-describedby="emailHelp" placeholder="Email address">
+        </div>
+        <div class="text-center mt-5 button__div">
+          <button type="submit" class="btn btn-primary notify">Send Me Alerts</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section> -->
+
+<section id="modals">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-sm modal-dialog-centered mx-auto">
+      <div class="modal-content">
+        <img class="w-100 h-auto" id="popup-img" src="" alt="image" srcset="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="footer">
+  <footer  style="overflow: hidden;">
+    <div class="text-left wow rotateInUpLeft">
+      <!-- <img src="../../assets/img/Logo3.png" alt="image" srcset=""> -->
+      <h1 class="text-center">Halo Group</h1>
+      <p class="text-center">12 Whatever Road</p>
+      <p class="text-center">Luanda</p>
+      <p class="text-center">Angola</p>
+    </div>
+    <div class="hr ml-auto wow slideInRight">
+      <hr align="center">
+    </div>
+    <div class="copyright" style="overflow: hidden;">
+      <p class="mx-auto  wow rotateInUpRight">Halo
+        <span class="iconify" data-icon="bx:bx-copyright" data-inline="false"></span>
+        <span class="ml-4">2020 All rights reserved</span>
+      </p>
+    </div>
+  </footer>
+</section>
+

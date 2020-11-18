@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+
+<section class="card-list"  >
+  <article  class="card" *ngFor="let post of posts"  id="{{post._id}}">
+    <header class="card-header">
+      <p>Vacancy</p>
+      <h2 >{{post.title}}</h2>
+
+    </header>
+    <div class="card-kick">
+        <img src="{{post.title}}" alt="" class="kick">
+    </div>
+
+    <div class="card-details">
+      <div class="card-img"><img *ngIf="post.url" src="{{post.url}}" class="img-fluid" height="120"
+              width="133" alt="image" srcset="">
+              <img *ngIf="!post.url" src="../../assets/img/naivelogo.jpg" class="img-fluid" height="120"
+              width="133" alt="image" srcset=""></div>
+
+      <div class="details-name"  >
+        <div class="details-name-prefix" >
+
+            {{post.where}}
+         </div>
+
+         Due Date: {{post.date }} <br>Posted: {{post.posted_date}}
+      </div>
+      <!-- <p>{{post.description}}</p> -->
+    </div>
+    <div class="tags">
+        <button
+        (click)="view(post._id)">View Applications</button>
+    </div>
+
+  </article>

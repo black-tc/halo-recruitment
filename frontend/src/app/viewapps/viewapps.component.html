@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+
+<section class="container">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">About</th>
+      <th scope="col">Date Applied</th>
+      <th scope="col">Resume/CV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let app of applications" >
+      <td></td>
+      <td *ngIf="app.job === job">{{ app.firstname }}</td>
+      <td *ngIf="app.job === job">{{ app.lastname }}</td>
+      <td *ngIf="app.job === job">{{ app.email }}</td>
+      <td *ngIf="app.job === job">{{ app.phone }}</td>
+      <td *ngIf="app.job === job">{{ app.comments }}</td>
+      <td *ngIf="app.job === job">{{ app.date_applied }}</td>
+      <td *ngIf="app.job === job"><a style="color: blue; ">Download Document</a></td>
+
+    </tr>
+
+  </tbody>
+</table>
+</section>

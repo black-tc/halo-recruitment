@@ -1,0 +1,79 @@
+.landing-pic{
+  background: url('../../assets/img/naivelogo.jpg');
+  background-size: auto;
+  height: 100vh;
+  background-repeat: no-repeat;
+  position: sticky;
+  top: 50vh;
+  z-index: 10;
+  /* margin-top: 10px; */
+}
+.logo{
+  background: url('../../assets/img/naivelogo.jpg');
+  background-repeat: no-repeat;
+  width: 65px;
+  margin-bottom: 10px;
+}
+.col-override{
+  max-width: 100%;
+}
+.offset-override{
+  max-width: 550px;
+  margin-right: 0%;
+  margin-left: 0%;
+  margin: 0 auto;
+}
+label{
+  font-weight: 500;
+}
+.invalid-feedback {
+  font-weight: 500;
+}
+
+.primary-border {
+  border-color: #000051 !important;
+  outline-color: #000051;
+}
+
+.btn-primary {
+  font-size: 1rem;
+  border-color: #000051 !important;
+  background-color: #000051 !important;
+  text-align: center !important;
+}
+
+.acolor {
+  color: #534bae;
+}
+
+.btn-secondary-light {
+  background-color: #000051;
+  color: #fff;
+}
+
+.btn-secondary-light:hover {
+  background-color: #534bae;
+  color: #fff;
+}
+
+@media (max-width: 992px){ /*Large*/
+  h1 {
+      font-size: 2em;
+  }
+  .logo {
+      width: 50px;
+  }
+}
+@media (min-width: 992px){ /*Large*/
+  .offset-override{
+    margin-right: 8%;
+    margin-left: 8%;
+  }
+}
+@media (min-width: 1200px){ /*Extra-Large*/
+  .offset-override{
+      margin-right: 10%;
+      margin-left: 10%;
+      margin: 0 auto;
+  }
+}

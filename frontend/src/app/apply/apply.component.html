@@ -1,0 +1,130 @@
+
+<div class="container-fluid bg-lightest">
+
+  <div *ngIf="showSnackbar">
+      <p >{{message}}</p>
+  </div>
+
+  <div class="row">
+
+      <div class="col col-12 col-lg-7 col-xl-8 justify-content-center text-center">
+          <div class="mt-4">
+              <h1 class="f6 text-secondary text-center" style="margin-top: 3rem">
+                  <a >
+
+                  </a> &nbsp;Apply for Vacancy:
+              </h1>
+
+
+              <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="text-left mt-4 offset-override">
+
+
+                  <div class="row">
+                      <div class="col-12 col-sm-6 col-md-6">
+
+
+                      <div class="form-group mb-3">
+                          <label for="firstname" class="text-secondary">First Name <span class="text-danger">*</span></label>
+                          <input type="text" required class="form-control primary-border" id="firstname" name="firstname"
+                          formControlName="firstname" maxlength="30"
+                          [ngClass]="{ 'is-invalid': submitted && f.firstname.errors, 'danger-border': submitted && f.firstname.errors }">
+
+                          <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                              <div *ngIf="f.firstname.errors.required">First name is required.</div>
+                              <div *ngIf="f.firstname.errors.pattern">Enter a valid first name.</div>
+                          </div>
+                          </div>
+                      </div>
+
+
+                      <div class="col-12 col-sm-6 col-md-6">
+                          <div class="form-group mb-3">
+                              <label for="lastname" class="text-secondary">Last Name <span class="text-danger">*</span></label>
+                              <input type="text" required class="form-control primary-border" id="lastname" name="lastname"
+                              formControlName="lastname" maxlength="30"
+                              [ngClass]="{ 'is-invalid': submitted && f.lastname.errors, 'danger-border': submitted && f.lastname.errors }">
+
+                              <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                  <div *ngIf="f.lastname.errors.required">Last name is required.</div>
+                                  <div *ngIf="f.lastname.errors.pattern">Enter a valid last name.</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+
+                <div class="form-group mb-3">
+                  <label for="phone" class="text-secondary">Cell Number <span class="text-danger">*</span></label>
+                  <input type="text" name="phone" required formControlName="phone" class="form-control primary-border"
+                      [ngClass]="{ 'is-invalid': submitted && f.phone.errors, 'danger-border': submitted && f.phone.errors }">
+
+                  <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                      <div *ngIf="f.phone.errors.required">Cell number is required.</div>
+                      <div *ngIf="f.phone.errors.pattern">Enter a valid input.</div>
+                  </div>
+              </div>
+
+
+              <div class="form-group mb-3">
+                <label for="email" class="text-secondary">Email <span class="text-danger">*</span></label>
+                <input type="text" name="email" required formControlName="email" class="form-control primary-border"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors, 'danger-border': submitted && f.email.errors }">
+
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required.</div>
+                    <div *ngIf="f.email.errors.pattern">Enter a valid email address.</div>
+                </div>
+            </div>
+
+                  <div class="form-group mb-3">
+                      <label for="cv">Upload CV <span class="text-danger">*</span></label>
+                      <br>
+                      <label class="btn btn-secondary-light">
+                          Browse <input type="file" name="cv" hidden accept="image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" formControlName="cv"
+                          (change)="selectDoc($event)">
+                      </label>
+                      <span class="ml-2 f4 ">
+                          {{ fileMessage }}
+                      </span>
+                      <div class="text-primary" *ngIf="!submitted || !f.cv.errors">
+
+                      </div>
+                  </div>
+
+
+                  <div class="form-group mb-3">
+                      <label for="comments" class="text-secondary">Tell us brief about your self <span class="text-danger">*</span></label>
+                      <textarea name="comments" rows="3" required formControlName="comments" class="form-control primary-border"
+                          [ngClass]="{ 'is-invalid': submitted && f.comments.errors, 'danger-border': submitted && f.comments.errors }"></textarea>
+
+                      <div *ngIf="submitted && f.comments.errors" class="invalid-feedback">
+                          <div *ngIf="f.comments.errors.required">Please tell us about yourself.</div>
+                          <div *ngIf="f.comments.errors.pattern">Max limit is 500 characters.</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group mb-2">
+                      <button [disabled]="loading || btnWait" class="btn btn-login btn-primary btn-block mt-4 py-3"><span *ngIf="!loading">APPLY</span>
+                      <div *ngIf="loading" class="spinner-border text-white" role="status">
+                          <span class="sr-only">Loading...</span>
+                      </div>
+                      </button>
+                  </div>
+                  <div class="text-center small">By clicking this button, you agree to our <a [routerLink]="['/terms']" target="_blank" class="acolor"><span class="f4">Terms and Conditions</span></a></div>
+
+                  <div class="text-secondary text-center my-4">
+                      <span class="f6">Already applied? &nbsp; <a [routerLink]="['']" class="text-primary"><span class="f4 acolor">View more vacancies</span></a></span>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+
+      <div class="col col-0 col-lg-5 col-xl-4 col-override p-0" style="min-height: 100vh;">
+          <div class="landing-pic d-none d-lg-block d-xl-block"></div>
+      </div>
+  </div>
+</div>
+
+

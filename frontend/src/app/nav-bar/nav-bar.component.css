@@ -1,0 +1,17 @@
+.btn-outline-warning{
+  border-radius: 50px;
+  width: 10rem;
+  border-color:   rgb(2, 42, 153) !important;
+}
+.shadow-bg{
+  text-shadow: 1px 1px 3px #000000;
+}
+
+.brand {
+/* color: linear-gradient( 135deg, #070713 0%, #0d0d26 48%, #000000 100% ); */
+color: rgb(2, 42, 153);
+}
+
+.btn:hover {
+  background-color: #000051;
+}

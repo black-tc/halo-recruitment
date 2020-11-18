@@ -1,0 +1,46 @@
+<div class="page-margin-top">
+  <div id="background" class="text-center w-100 page-min-height">
+      <div class="w-100 row m-0" >
+          <div id="profile" class="col-10 offset-1 col-lg-8 offset-lg-2 bg-white mb-5">
+              <div class="px-3 content-container overflow-hidden" >
+                  <div *ngIf="!fl && !error" class="w-100 text-center my-5 py-5">
+                      <div class="spinner-border text-primary" role="status">
+                          <span class="sr-only">Loading...</span>
+                      </div>
+                  </div>
+
+                  <div *ngIf="fl && !error" class="row">
+                      <div *ngIf="fl.url" class="col-12 col-md-6 overflow-hidden d-flex text-center">
+                          <img src="{{fl.url}}" class="rounded profile-pic align-self-center mx-auto justify-content-center">
+                      </div>
+                      <div class="col-12 col-md-6 text-left overflow-hidden px-0" >
+                          <!-- <h6 class="py-0 mb-2 jost f4 text-center text-left"><strong><span class="text-right" style="float: right">#hireafreelancer</span></strong></h6> -->
+                          <h2 class="text-left jost text-dark my-0 f6" >{{ fl.title | uppercase }} </h2>
+                          <h2 class="text-left jost text-dark my-0 f6">{{ fl.where | uppercase }}</h2>
+                          <div class="text-center mb-0 mt-2 oswald inc-font f6 text-gray">{{ fl.expertise | uppercase }}</div>
+                          <div class="text-center mb-0 mt-2 oswald inc-font f6 text-gray">Due Date: {{ fl.date  }}</div>
+                          <div class="text-center mb-0 mt-2 oswald inc-font f6 text-gray">Location: {{ fl.location }}</div>
+                          <div class="text-left mt-2">{{ fl.description }}</div>
+                      </div>
+                  </div>
+
+                  <div *ngIf="error" class="my-5">
+                      <div class="h5">
+                          Oopss! Sorry we couldn't find that profile
+                      </div>
+                      <div class="mt-4">
+                          <a routerLink="/home"><button class="btn btn-primary px-4 py-2">Return Home</button></a>
+                      </div>
+                      <div class="mt-2">
+                          <a routerLink="/library" class="text-primary mt-2 f4">View Library</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+

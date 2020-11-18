@@ -1,0 +1,30 @@
+.services-header-text {
+  text-align: center;
+  padding: 75px 0;
+}
+
+.services-header-text p {
+  color: #707070;
+}
+
+.get {
+  /* width: 50%; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+margin-top: 25px;
+
+}
+
+.btn-primary {
+  font-size: 1rem;
+  border-color: #000051 !important;
+  background-color: #000051 !important;
+  text-align: center !important;
+}
+
+.btn-primary:hover {
+  border-color: #534bae !important;
+  background-color: #534bae !important;
+
+}

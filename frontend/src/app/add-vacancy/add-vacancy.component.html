@@ -1,0 +1,96 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="main-container">
+  <div class="services-header-text">
+    <h1>Create new vacancy post</h1>
+    <p>Add a new post by filling in the details below:</p>
+  </div>
+  <form [formGroup]="createForm">
+
+    <div class="title field">
+      <label>Title</label>
+      <input class="form-control" formControlName="title" placeholder="Enter title">
+      <div *ngIf="
+          createForm.get('title').errors?.required &&
+          createForm.get('title').touched
+        " style="color: 'red';" class="invalid   ">
+        Title is required.
+      </div>
+    </div>
+
+    <div class="desc field">
+      <label for="desc">Description (Less than 1500 letters)</label>
+      <textarea id="desc" cols="70" rows="10" placeholder="Enter description" formControlName="description"></textarea>
+      <div *ngIf="
+          createForm.get('description').errors?.required &&
+          createForm.get('description').touched
+        " style="color: 'red';">
+        Value is required.
+      </div>
+      <div *ngIf="createForm.get('description').errors?.minlength" style="color: 'red';">
+        Value you entered is
+        {{ createForm.get('description').errors?.minlength.actualLength }}
+        characters long, but it must be at least
+        {{ createForm.get('description').errors?.minlength.requiredLength }}
+        characters.
+      </div>
+      <div *ngIf="createForm.get('description').errors?.maxlength" style="color: 'red';">
+        Value you entered is
+        {{ createForm.get('description').errors?.maxlength.actualLength }}
+        characters long, but it must be less than
+        {{ createForm.get('description').errors?.maxlength.requiredLength }}
+        characters.
+      </div>
+    </div>
+
+    <div class="desc field">
+      <label for="desc">Duties (Less than 1000 letters)</label>
+      <textarea id="desc" cols="70" rows="10" placeholder="Enter duties" formControlName="duties"></textarea>
+      <div *ngIf="
+          createForm.get('duties').errors?.required &&
+          createForm.get('duties').touched
+        " style="color: 'red';">
+        Value is required.
+      </div>
+      <div *ngIf="createForm.get('duties').errors?.minlength" style="color: 'red';">
+        Value you entered is
+        {{ createForm.get('duties').errors?.minlength.actualLength }}
+        characters long, but it must be at least
+        {{ createForm.get('duties').errors?.minlength.requiredLength }}
+        characters.
+      </div>
+      <div *ngIf="createForm.get('duties').errors?.maxlength" style="color: 'red';">
+        Value you entered is
+        {{ createForm.get('duties').errors?.maxlength.actualLength }}
+        characters long, but it must be less than
+        {{ createForm.get('duties').errors?.maxlength.requiredLength }}
+        characters.
+      </div>
+    </div>
+    <div class="image field">
+      <label>Location</label>
+      <input class="form-control" formControlName="where" placeholder="Enter location" name="where">
+    </div>
+    <div class="image field">
+      <label>Image Url</label>
+      <input class="form-control" formControlName="image" placeholder="Enter image url" name="image url">
+    </div>
+
+    <div class="price field">
+      <label>Due Date</label>
+      <input type="date" class="form-control" formControlName="date" placeholder=""
+        name="value type">
+    </div>
+
+
+    <div class="buttons field">
+      <button (click)="handleCancelCreate()" type="button" class="btn btn-block btn-outline-secondary cancel">
+        Reset Form
+      </button>
+      <button [disabled]="createForm.invalid" (click)="addVacancy()" class="btn btn-block btn-primary create">
+        Create
+      </button>
+
+    </div>
+  </form>
+</div>
